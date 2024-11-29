@@ -22,7 +22,7 @@ void AtualizarMenu(TelaDoJogo* telaAtual, bool* botaoIniciar, bool* botaoCredito
     }
     else if (*botaoSair && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) 
     {
-        SairDoJogo();
+        SairDoJogo(telaAtual);
 
     }
 

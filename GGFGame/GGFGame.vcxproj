@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Cenario.cpp" />
     <ClCompile Include="Creditos.cpp" />
     <ClCompile Include="GamePlay.cpp" />
     <ClCompile Include="GGFGame.cpp" />
@@ -149,6 +150,7 @@
     <ClCompile Include="Sair.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Cenario.h" />
     <ClInclude Include="Creditos.h" />
     <ClInclude Include="GameEstado.h" />
     <ClInclude Include="GamePlay.h" />

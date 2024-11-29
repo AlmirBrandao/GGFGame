@@ -1,8 +1,11 @@
 //Lógica do botão sair
-#include "sair.h"
 #include <raylib.h>
+#include "GameEstado.h"
+#include "Sair.h"
 
-void SairDoJogo() {
-    
-    CloseWindow();
+
+void SairDoJogo(TelaDoJogo* telaAtual) {
+    if (telaAtual != NULL) {
+        *telaAtual = SAIR;
+    }    
 }

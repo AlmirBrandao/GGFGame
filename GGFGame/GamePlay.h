@@ -6,6 +6,7 @@
 
 // Função para exibir e atualizar a tela de gameplay
 void ExibirGameplay();
+void CarregarRecursosGameplay();
+void LiberarRecursosGameplay();
 
 #endif
-

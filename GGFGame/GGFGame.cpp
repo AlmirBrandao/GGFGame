@@ -1,13 +1,14 @@
 // Mantem o loop principal e configura a estrutura de inicialização e encerramento do jogo.
 
+
 #include <raylib.h>
+#include "GameEstado.h"
 #include "menu.h"
 #include "gameplay.h"
 #include "creditos.h"
-#include "GameEstado.h"
+#include "Sair.h"
 
-int main(void) 
-{
+int main(void) {
     const int largura = 800;
     const int altura = 450;
     TelaDoJogo telaAtual = MENU;
@@ -16,20 +17,32 @@ int main(void)
 
     InitWindow(largura, altura, "Menu Inicial");
     SetTargetFPS(60);
-        
-    while (!WindowShouldClose()) {
+
+    // Carrega recursos do jogo antes do loop principal
+    CarregarRecursosGameplay();
+
+    while (!WindowShouldClose() && telaAtual != SAIR) {
         BeginDrawing();
         ClearBackground(BLACK);
 
-        if (telaAtual == MENU)
+        if (telaAtual == MENU) {
             AtualizarMenu(&telaAtual, &botaoIniciar, &botaoCredito, &botaoSair);
-        else if (telaAtual == GAMEPLAY)
+            if (botaoSair && IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                SairDoJogo(&telaAtual);
+            }
+        }
+        else if (telaAtual == GAMEPLAY) {
             ExibirGameplay();
-        else if (telaAtual == CREDITOS)
+        }
+        else if (telaAtual == CREDITOS) {
             ExibirCreditos(&telaAtual, &botaoMenu);
-        
+        }
+
         EndDrawing();
     }
+
+    // Libera recursos do jogo antes de encerrar
+    LiberarRecursosGameplay();
 
     CloseWindow();
     return 0;
